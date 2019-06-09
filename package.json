@@ -1,0 +1,11 @@
+{
+  "name": "brain-of-isaac-commons",
+  "version": "0.0.1",
+  "description": "The Brain of Isaac Twitch Extension Common Files",
+  "author": "Edson Mesquita",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {}
+}
