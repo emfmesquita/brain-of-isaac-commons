@@ -5,7 +5,7 @@ const selecTransformation = (transformation) => {
 }
 
 const updateTransGuppy = (count, gotItems, goneItems) => {
-    return { type: types.TRANS_UPDATE_GUPPY, gotItems, goneItems }
+    return { type: types.TRANS_UPDATE_GUPPY, count, gotItems, goneItems }
 }
 
 const updateTransBeelzebub = (count, gotItems, goneItems) => {

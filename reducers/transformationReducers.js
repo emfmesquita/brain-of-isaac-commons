@@ -44,7 +44,7 @@ const genericItemTrans = (expectedAction, state, action) => {
         count: action.count || 0,
         items: {}
     };
-    Object.keys(state).forEach(itemId => {
+    Object.keys(state.items).forEach(itemId => {
         newState.items[itemId] = {
             got: action.gotItems && action.gotItems.indexOf(itemId) !== -1,
             gone: action.goneItems && action.goneItems.indexOf(itemId) !== -1
