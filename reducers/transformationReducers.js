@@ -30,7 +30,7 @@ setInitialItemState(initialState.funguy, ["11", "12", "71", "120", "121", "342",
 setInitialItemState(initialState.seraphim, ["33", "72", "101", "112", "173", "184", "185", "313", "363"]);
 setInitialItemState(initialState.bob, ["42", "140", "149", "273"]);
 setInitialItemState(initialState.spun, ["13", "14", "70", "143", "240", "345", "493", "496"]);
-setInitialItemState(initialState.mom, ["29", "30", "31", "39", "41", "55", "102", "110", "114", "139", "195", "199", "200", "217", "228", "355", , "508"]);
+setInitialItemState(initialState.mom, ["29", "30", "31", "39", "41", "55", "102", "110", "114", "139", "195", "199", "200", "217", "228", "355", "508"]);
 setInitialItemState(initialState.conjoined, ["8", "67", "100", "167", "268", "269", "322"]);
 setInitialItemState(initialState.leviathan, ["51", "79", "80", "83", "118", "159", "230", "399"]);
 setInitialItemState(initialState.ohcrap, ["36", "236", "291"]);
@@ -45,19 +45,21 @@ const genericItemTrans = (expectedAction, state, action) => {
         items: {}
     };
     Object.keys(state.items).forEach(itemId => {
+        let got = (action.gotItems || []).map(id => id + "");
+        let gone = (action.goneItems || []).map(id => id + "");
         newState.items[itemId] = {
-            got: action.gotItems && action.gotItems.indexOf(itemId) !== -1,
-            gone: action.goneItems && action.goneItems.indexOf(itemId) !== -1
+            got: got.indexOf(itemId) !== -1,
+            gone: gone.indexOf(itemId) !== -1
         }
     });
     return newState;
 }
 
 const adulthood = (state = initialState.adulthood, action) => {
-    if(types.TRANS_UPDATE_STOMPY !== action.type) return state;
+    if(types.TRANS_UPDATE_ADULTHOOD !== action.type) return state;
     return {
         count: action.count || 0,
-        pillId: action.pillId || 0
+        pillId: action.pillId + "" || "0"
     };
 };
 
